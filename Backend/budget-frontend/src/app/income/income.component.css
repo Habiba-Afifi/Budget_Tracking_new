@@ -1,0 +1,400 @@
+ /* General Styling */
+ body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+  margin: 0;
+  padding: 0;
+}
+
+/* Income Tracker Container */
+.income-tracker {
+  max-width: 100%;
+  margin: 20px auto;
+  background-color: #f3ebd9;
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+  font-family: 'Arial', sans-serif;
+  color: #333;
+}
+
+h1 {
+  text-align: center;
+  color: #333;
+  font-size: 2.5em;
+  margin-bottom: 20px;
+}
+
+/* Add Income Section */
+.add-income-section,
+.income-list-section {
+  margin-bottom: 30px;
+  background-color: #f7f7f7;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.add-income-section h3,
+.income-list-section h3 {
+  font-size: 1.8em;
+  margin-bottom: 15px;
+  color: #5c4e2e;
+  text-align: center;
+}
+
+
+
+.add-income-form input,
+.add-income-form button {
+  flex: 1 1 48%; /* Flex-grow and flex-basis for equal distribution */
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  font-size: 1.1rem;
+  background-color: #fff;
+  color: #333;
+  transition: all 0.3s ease;
+}
+
+.add-income-form input:focus,
+.add-income-form button:focus {
+  border-color: #b99a45;
+  outline: none;
+}
+
+.add-income-form button {
+  background-color: #c3ae7d;
+  color: white;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  padding: 8px 15px;  /* Reduced padding for a smaller button */
+  font-size: 1rem;    /* Smaller font size */
+}
+
+.add-income-form button:hover {
+  background-color: #837b5f;
+  transform: scale(1.05);
+}
+
+.add-income-form button i {
+  font-size: 1.5rem;
+}
+
+/* Income List Section */
+.income-list-section table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+.income-list-section th {
+  background: #c3ae7d;
+  color: white;
+  text-align: left;
+  padding: 15px;
+  font-weight: bold;
+}
+
+.income-list-section td {
+  padding: 12px;
+  border-bottom: 1px solid #ddd;
+  background-color: #fff;
+}
+
+.income-list-section button {
+  padding: 8px 15px;
+  background-color: #5c4e2e;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  margin-right: 10px; /* Added margin to space out the buttons */
+}
+
+.income-list-section button:hover {
+  background-color: #c3ae7d;
+  transform: scale(1.05);
+}
+
+.income-list-section button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+.income-summary {
+  margin: 20px 0;
+  padding: 20px;
+  background-color: #f8f9fa;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  text-align: center; /* Center the content */
+}
+
+.income-summary h4 {
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+  color: #1a1a1a; /* Dark text color */
+}
+
+.summary-container {
+  display: flex;
+  justify-content: center; /* Center the summary items */
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.summary-item {
+  background-color: #ffffff;
+  border-radius: 10px;
+  padding: 20px;
+  width: 150px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.summary-item p {
+  font-size: 1rem;
+  color: #1a1a1a; /* Dark text color */
+  margin: 0;
+}
+
+.summary-item h3 {
+  font-size: 1.5rem;
+  margin: 10px 0 0;
+  color: #b99a45; /* Golden yellow for totals */
+}
+
+.summary-item p strong {
+  font-weight: bold;
+}
+
+.summary-container .summary-item:first-child {
+  background-color: #f9f9f9; /* Golden background for total sources */
+}
+
+.summary-container .summary-item:last-child {
+  background-color: #f9f9f9; /* Light beige for total income */
+}
+
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .add-income-form input,
+  .add-income-form button {
+    flex: 1 1 100%; /* Stack fields vertically on medium screens */
+  }
+}
+
+@media (max-width: 480px) {
+  .income-tracker {
+    padding: 15px;
+  }
+
+  .add-income-section h3,
+  .income-list-section h3 {
+    font-size: 1.5em;
+  }
+}
+/* Income Tracker Form Styling */
+.add-income-form .form-group {
+  flex: 1 1 48%; /* Ensure each form group takes up 48% of the available space */
+  margin-bottom: 15px;
+  display: flex;
+  flex-direction: column; /* Stack label and input */
+}
+
+.add-income-form label {
+  font-size: 1.1em;
+  font-weight: bold;
+  margin-bottom: 10px; /* Consistent spacing from the input */
+  display: block;
+  width: 100%; /* Ensure labels take up full width */
+  text-align: left; /* Align labels to the left */
+}
+
+.add-income-form input {
+  width: 100%; /* Make inputs stretch fully within their container */
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  font-size: 1.1rem;
+  background-color: #fff;
+  color: #333;
+  transition: all 0.3s ease;
+  box-sizing: border-box; /* Ensure padding is included in width calculations */
+}
+
+.add-income-form input:focus {
+  border-color: #7e6e39;
+  outline: none;
+}
+
+.add-income-form button {
+  flex: 0 1 50%; /* Adjust button size */
+  padding: 10px 20px;
+  font-size: 1.1rem;
+  background-color: #b99a45;
+  color: white;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  margin: 0 auto;
+  width: fit-content;
+}
+.add-income-section .add-income-form button {
+  background-color: #c3ae7d !important; /* Add !important to override other styles */
+}
+.add-income-section .add-income-form button:hover {
+  background-color: #837b5f !important;
+}
+.add-income-form button:hover {
+  background-color: #7e6e39;
+  transform: scale(1.05);
+}
+
+.add-income-form button i {
+  font-size: 1.5rem;
+}
+/* Modal Styles */
+.confirmation-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal-content {
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  text-align: center;
+}
+
+.modal-buttons {
+  margin-top: 10px;
+}
+
+.modal-buttons button {
+  margin: 0 10px;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+}
+/* Responsive Design */
+@media (max-width: 768px) {
+  .add-income-form .form-group {
+    flex: 1 1 100%; /* Stack fields vertically on medium screens */
+  }
+}
+
+@media (max-width: 480px) {
+  .income-tracker {
+    padding: 15px;
+  }
+}
+
+
+/* income Tracker Container */
+.income-form {
+  max-width: 100%;
+  margin: 20px auto;
+  background-color: #f3ebd9;
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+  font-family: 'Arial', sans-serif;
+  color: #1a1a1a;
+}
+
+h2 {
+  text-align: center;
+  color: #1a1a1a;
+  font-size: 2.5em;
+  margin-bottom: 20px;
+}
+
+/* Budget Form Layout */
+.income-form .form-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: space-between;
+}
+
+.income-form .form-group {
+  flex: 1 1 48%; /* Flex-grow and flex-basis for equal distribution */
+  margin-bottom: 20px;
+}
+
+.income-form label {
+  font-size: 1.1em;
+  font-weight: bold;
+  margin-bottom: 10px;
+  display: block;
+  width: 100%;
+  text-align: left;
+}
+
+.income-form input {
+  width: 100%; /* Make inputs stretch fully within their container */
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  font-size: 1.1rem;
+  background-color: #fff;
+  color: #333;
+  transition: all 0.3s ease;
+  box-sizing: border-box; /* Ensure padding is included in width calculations */
+}
+
+.income-form input:focus {
+  border-color: #b99a45;
+  outline: none;
+}
+
+.income-form button {
+  flex: 1 1 50%; /* Adjust button size */
+  padding: 10px 20px;
+  font-size: 1.1rem;
+  background-color: #c3ae7d;
+  color: white;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  margin: 20px auto;
+}
+
+.income-form button:hover {
+  background-color: #837b5f;
+  transform: scale(1.05);
+}
+
+.income-form button i {
+  font-size: 1.5rem;
+}
+
+

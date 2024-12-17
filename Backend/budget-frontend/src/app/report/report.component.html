@@ -1,0 +1,95 @@
+<div class="container">
+    <h2>Financial Report</h2>
+    
+    <!-- Summary Metrics -->
+    <div class="metrics">
+        <p>Total Income <span><br>{{ totalIncome | currency }}</span></p>
+        <p>Total Expenses <span><br>{{ totalExpenses | currency }}</span></p>
+        <p>Income Budget Variance <br><span [ngClass]="budgetVarianceIncome >= 0 ? 'positive' : 'negative'">
+          {{ budgetVarianceIncome | currency }}</span></p>
+          <p>Expense Budget Variance <span [ngClass]="budgetVarianceExpense >= 0 ? 'positive' : 'negative'">
+            {{ budgetVarianceExpense | currency }}</span></p>
+            <div class="metrics_2">
+        <p>Savings Progress <span><br>{{ savingsProgress | number: '1.0-2' }}%</span></p>
+    </div>
+    </div>
+    
+    <!-- Income Table -->
+    <div class="report-section">
+        <h3>Income</h3>
+        <table class="report-table">
+            <thead>
+                <tr>
+                    <th>Source</th>
+                    <th>Amount</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let income of incomeData">
+                    <td>{{ income.sourceName }}</td>
+                    <td>{{ income.amount | currency }}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+  
+    <!-- Largest Income Source -->
+    <div class="metrics_1">
+        <p><strong>Largest Income Source <br> </strong> {{ largestIncomeSource }}</p>
+    </div>
+  
+    <!-- Expenses Table -->
+    <div class="report-section">
+        <h3>Expenses</h3>
+        <table class="report-table">
+            <thead>
+                <tr>
+                    <th>Category</th>
+                    <th>Amount</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let expense of expenseData">
+                    <td>{{ expense.category }}</td>
+                    <td>{{ expense.amount | currency }}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+  
+    <!-- Largest Expense Category -->
+    <div class="metrics_1">
+        <p><strong>Largest Expense Category <br> </strong> {{ largestExpenseCategory }}</p>
+    </div>
+  
+    <!-- Income vs Expenses Comparison -->
+    <div class="comparison">
+        <h3>Income vs Expenses Comparison</h3>
+        <table class="comparison-table">
+            <thead>
+                <tr>
+                    <th>Metric</th>
+                    <th>Income</th>
+                    <th>Expenses</th>
+                    <th>Difference</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Total Amount</td>
+                    <td>{{ totalIncome | currency }}</td>
+                    <td>{{ totalExpenses | currency }}</td>
+                    <td>{{ (totalIncome - totalExpenses) | currency }}</td>
+                </tr>
+                <tr>
+                    <td>Largest Contribution</td>
+                    <td>{{ largestIncomeSource }} ({{ largestIncomeAmount | currency }})</td>
+                    <td>{{ largestExpenseCategory }} ({{ largestExpenseAmount | currency }})</td>
+                    <td>
+                        {{ (largestIncomeAmount - largestExpenseAmount) | currency }}
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+  </div>

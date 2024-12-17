@@ -1,0 +1,76 @@
+<div class="dashboard-container">
+  <!-- Financial Overview Section -->
+  <section class="financial-overview">
+    <h2>Financial Overview</h2>
+    <div class="overview-cards">
+      <div class="card">
+        <h3>Total Income</h3>
+        <p>{{ totalIncome | currency }}</p>
+      </div>
+      <div class="card">
+        <h3>Total Expenses</h3>
+        <p>{{ totalExpenses | currency }}</p>
+      </div>
+      <div class="card">
+        <h3>Savings</h3>
+        <p>{{ savings | currency }}</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Income and Expense Distribution Charts -->
+  <section class="charts">
+    <div class="chart-container">
+      <h3>Income by Source</h3>
+      <div class="chart">
+        <canvas id="incomeBySourceChart"></canvas>
+      </div>
+    </div>
+    <div class="chart-container">
+      <h3>Expense by Category</h3>
+      <div class="chart">
+        <canvas id="expenseByCategoryChart"></canvas>
+      </div>
+    </div>
+  </section>
+
+  <!-- Income and Expense by Date & Goal Progress Charts -->
+  <section class="charts">
+    <div class="chart-container">
+      <h3 class="chart-heading">Recurring vs Non-Recurring Expenses</h3>
+      <div class="chart">
+        <canvas id="recurringNonRecurringChart"></canvas>
+      </div>
+    </div>
+    <div class="chart-container">
+      <h3>Goal Progress</h3>
+      <div class="chart">
+        <canvas id="goalProgressChart"></canvas>
+      </div>
+    </div>
+  </section>
+  <section class="charts">
+    <div class="chart-container" id="expenseByDateChartContainer">
+      <h3>Expense by Date</h3>
+      <div class="chart">
+        <canvas id="expenseByDateChart"></canvas>
+      </div>
+    </div>
+  </section>
+   
+
+  <!-- Financial Goals Section -->
+  <section class="financial-goals">
+    <h3>Financial Goals</h3>
+    <div class="goals-list" *ngIf="goals.length > 0; else noGoals">
+      <div class="goal" *ngFor="let goal of goals">
+        <h4>{{ goal.title }}</h4>
+        <p>Target {{ goal.targetAmount | currency }}</p>
+        <p>Progress {{ goal.progress | number: '1.0-0' }}%</p>
+      </div>
+    </div>
+    <ng-template #noGoals>
+      <p>No goals set yet.</p>
+    </ng-template>
+  </section>
+</div>

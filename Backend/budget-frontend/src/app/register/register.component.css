@@ -1,0 +1,79 @@
+.auth-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: #fafaf8; /* Updated background */
+  font-family: 'Roboto', sans-serif;
+}
+
+.auth-card {
+  background: #f7e9c8; /* Updated background */
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 400px;
+  text-align: center;
+}
+
+h2 {
+  color: #1a1a1a; /* Updated color */
+  margin-bottom: 1rem;
+}
+
+input {
+  width: 100%;
+  margin-bottom: 1rem;
+  padding: 0.75rem;
+  border: 1px solid #d5b18f; /* Updated border color */
+  border-radius: 6px;
+  font-size: 16px;
+}
+
+button {
+  width: 100%;
+  padding: 0.75rem;
+  border: none;
+  background-color: #000000; /* Updated background color */
+  color: #e3d6b4; /* Updated text color */
+  font-size: 16px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #1a1a1a; /* Updated hover color */
+}
+
+.auth-message {
+  margin-top: 1rem;
+  color: #d5c28f; /* Updated color */
+}
+
+.auth-link {
+  margin-top: 1rem;
+  color: #1a1a1a; /* Updated color */
+  font-size: 14px;
+}
+
+.auth-link a {
+  color: #C7AE6A; /* Updated link color */
+  text-decoration: none;
+}
+
+.auth-link a:hover {
+  text-decoration: underline;
+}
+.app-logo {
+  width: 100px; /* Adjust size as needed */
+  height: auto; /* Maintain aspect ratio */
+  margin: 0 auto 1rem; /* Center and add spacing below */
+  display: block;
+}
+/* Add this in register.component.css */
+.error-message {
+  color: red;
+  font-size: 0.9rem;
+  margin-top: 5px;
+}

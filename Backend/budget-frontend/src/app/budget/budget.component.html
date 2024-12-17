@@ -1,0 +1,116 @@
+<div class="add-budget-section">
+  <div class="budget-form">
+    <h2>Create Your Monthly Budget</h2>
+
+    <!-- Display Validation or Success Messages -->
+    <div *ngIf="validationError || budgetSummary" class="messages">
+      <div *ngIf="validationError" class="error-message">
+        <mat-icon>error</mat-icon> {{ validationError }}
+      </div>
+      <div *ngIf="budgetSummary && !validationError" class="success-message">
+        <mat-icon>check_circle</mat-icon> Budget created successfully!
+      </div>
+    </div>
+
+    <form [formGroup]="budgetForm" (ngSubmit)="onSubmit()">
+      <input type="hidden" formControlName="userID" />
+
+      <!-- Month Input -->
+      <div class="form-row">
+        <div class="form-group">
+          <label for="month" class="icon-label">
+            <mat-icon>calendar_today</mat-icon> Month
+          </label>
+          <select id="month" formControlName="month">
+            <option value="" disabled selected>Select a month</option>
+            <option *ngFor="let m of months" [value]="m">{{ m }}</option>
+          </select>
+        </div>
+
+        <!-- Income Input -->
+        <div class="form-group">
+          <label for="income" class="icon-label">
+            <mat-icon>attach_money</mat-icon> Expected Income
+          </label>
+          <input type="number" id="income" formControlName="income" />
+          <!-- Validation Message for Negative Value -->
+          <div *ngIf="budgetForm.get('income')?.hasError('negativeValue')" class="error">
+            <mat-icon>error</mat-icon> Income cannot be negative.
+          </div>
+        </div>
+
+        <!-- Expenses Input -->
+        <div class="form-group">
+          <label for="expenses" class="icon-label">
+            <mat-icon>credit_card</mat-icon> Expected Expenses
+          </label>
+          <input type="number" id="expenses" formControlName="expenses" />
+          <!-- Validation Message for Negative Value -->
+          <div *ngIf="budgetForm.get('expenses')?.hasError('negativeValue')" class="error">
+            <mat-icon>error</mat-icon> Expenses cannot be negative.
+          </div>
+        </div>
+      </div>
+
+      <!-- Validation Message for Expenses Exceeding Income -->
+      <div *ngIf="budgetForm.hasError('expensesExceedIncome')" class="error">
+        <mat-icon>warning</mat-icon> Expenses exceed income!
+      </div>
+
+      <!-- Categories Dropdown List -->
+      <div formArrayName="categories">
+        <div *ngFor="let category of categories.controls; let i = index" [formGroupName]="i" class="form-group">
+          <label for="categoryName" class="icon-label">
+            <mat-icon>category</mat-icon> Category Name
+          </label>
+          <select id="categoryName" formControlName="categoryName">
+            <option value="" disabled>Select a category</option>
+            <option *ngFor="let c of predefinedCategories" [value]="c">{{ c }}</option>
+          </select>
+
+          <label for="categoryLimit" class="icon-label">
+            <mat-icon>payments</mat-icon> Category Limit
+          </label>
+          <input type="number" formControlName="categoryLimit" />
+          <!-- Validation Message for Negative Value in Category Limit -->
+          <div *ngIf="category.get('categoryLimit')?.hasError('negativeValue')" class="error">
+            <mat-icon>error</mat-icon> Limit cannot be negative.
+          </div>
+        </div>
+        <button type="button" class="add-category-btn" (click)="addCategory()">
+          <mat-icon>add_circle</mat-icon> Add Category
+        </button>
+      </div>
+
+      <!-- Submit Button -->
+      <button type="submit" class="submit-btn" [disabled]="budgetForm.invalid">
+        <mat-icon>check_circle</mat-icon> Create Budget
+      </button>
+    </form>
+  </div>
+
+  <!-- Budget Summary Section -->
+  <div *ngIf="budgetSummary" class="budget-summary">
+    <h3>Budget Summary</h3>
+    <p>
+      <strong>
+        <mat-icon>attach_money</mat-icon> Income
+      </strong>
+      {{ budgetSummary.income | currency }}
+    </p>
+    <p>
+      <strong>
+        <mat-icon>credit_card</mat-icon> Expenses
+      </strong>
+      {{ budgetSummary.expenses | currency }}
+    </p>
+
+    <h4>Categories</h4>
+    <ul>
+      <li *ngFor="let category of budgetSummary.categories" style="list-style-type: none;">
+        <mat-icon>category</mat-icon>
+        <strong>{{ category.categoryName }}</strong> {{ category.categoryLimit | currency }}
+      </li>
+    </ul>
+  </div>
+</div>

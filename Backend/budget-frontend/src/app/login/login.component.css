@@ -1,0 +1,133 @@
+.auth-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: #fafaf8;
+  font-family: 'Roboto', sans-serif;
+}
+
+.auth-card {
+  background: #f7e9c8;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 400px;
+  text-align: center;
+}
+
+h2 {
+  color: #1a1a1a;
+  margin-bottom: 1rem;
+}
+
+input {
+  width: 100%;
+  margin-bottom: 1rem;
+  padding: 0.75rem;
+  border: 1px solid #d5c28f;
+  border-radius: 6px;
+  font-size: 16px;
+}
+
+button {
+  width: 100%;
+  padding: 0.75rem;
+  border: none;
+  background-color: #000000;
+  color: #e3d6b4;
+  font-size: 16px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #1a1a1a;
+}
+
+.auth-message {
+  margin-top: 1rem;
+  padding: 0.75rem;
+  border-radius: 6px;
+  font-size: 16px;
+  text-align: center;
+  display: block;
+}
+
+.auth-message.success {
+  background-color: #C7AE6A;  /* Success background */
+  color: #1a1a1a;  /* Success text color */
+}
+
+.auth-message.error {
+  background-color: #f8d7da;  /* Error background */
+  color: #721c24;  /* Error text color */
+}
+
+.auth-link {
+  margin-top: 1rem;
+  color: #000000;
+  font-size: 14px;
+}
+
+.auth-link a {
+  color: #b99a45;
+  text-decoration: none;
+}
+
+.auth-link a:hover {
+  text-decoration: underline;
+}
+
+.app-logo {
+  width: 100px;
+  height: auto;
+  margin: 0 auto 1rem;
+  display: block;
+}
+.pop-message {
+  position: fixed; /* Ensure the pop message is positioned relative to the viewport */
+  bottom: 20px; /* Position near the bottom of the viewport */
+  left: 50%;
+  transform: translateX(-50%); /* Center horizontally */
+  background-color: #000000; /* Default background color */
+  color: #e3d6b4; /* Default text color */
+  padding: 1rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  font-size: 16px;
+  text-align: center;
+  z-index: 1000; /* Ensure it appears above other elements */
+  animation: fadeInOut 4s ease-in-out; /* Fade in and out */
+  width: calc(100% - 40px); /* Full width on smaller screens */
+  max-width: 400px; /* Restrict maximum width */
+}
+
+/* Success variant */
+.pop-message.success {
+  background-color: #C7AE6A; /* Match success card color */
+  color: #1a1a1a; /* Dark text for contrast */
+}
+
+/* Error variant */
+.pop-message.error {
+  background-color: #f8d7da; /* Error background */
+  color: #721c24; /* Error text color */
+}
+
+/* Fade-in and fade-out animation */
+@keyframes fadeInOut {
+  0% {
+    opacity: 0;
+    transform: translateX(-50%) translateY(20px); /* Start slightly below */
+  }
+  10%, 90% {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0); /* Settle into position */
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(-50%) translateY(20px); /* Exit slightly below */
+  }
+}

@@ -1,0 +1,234 @@
+/* General Styling */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+  margin: 0;
+  padding: 0;
+}
+
+/* Goal Setting Container */
+.goal-container {
+  max-width: 100%;
+  margin: 20px auto;
+  background-color: #f3ebd9;
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+  font-family: 'Arial', sans-serif;
+  color: #333;
+}
+
+/* Title */
+.title {
+  text-align: center;
+  color: #5c4e2e;
+  font-size: 2.5em;
+  margin-bottom: 20px;
+}
+
+/* Goal Form */
+.goal-form {
+  background-color: #f7f7f7;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  margin-bottom: 30px;
+}
+
+.goal-form h3 {
+  font-size: 1.8em;
+  margin-bottom: 15px;
+  color: #5c4e2e;
+  text-align: center;
+}
+
+.goal-form label {
+  font-size: 1.1em;
+  font-weight: bold;
+  margin-bottom: 10px;
+  display: block;
+  width: 100%;
+  text-align: left;
+}
+
+.goal-form input,
+.goal-form textarea,
+.goal-form button {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  font-size: 1.1rem;
+  background-color: #fff;
+  color: #333;
+  transition: all 0.3s ease;
+  box-sizing: border-box;
+}
+
+.goal-form input:focus,
+.goal-form textarea:focus {
+  border-color: #b99a45;
+  outline: none;
+}
+
+.goal-form button {
+  background-color: #c3ae7d;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  padding: 8px 15px;
+  font-size: 1rem;
+  width: 50%;
+  margin: 0 auto;
+}
+
+.goal-form button:hover {
+  background-color: #837b5f;
+  transform: scale(1.05);
+}
+
+.goal-form button i {
+  font-size: 1.5rem;
+}
+
+/* Goal List */
+.goal-list {
+  margin-top: 20px;
+  background-color: #f9eed5; /* Main background color*/
+  padding: 20px; /* Add spacing inside the card */
+  border-radius: 15px; /* Round the corners */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Add a subtle shadow for elevation */
+  text-align: center;
+
+}
+.goal-card {
+  background-color: #fff; /* White background for each goal card */
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  margin-bottom: 20px; /* Space between cards */
+  
+}
+
+.goal-card h4 {
+  color: #1a1a1a; /* Dark text for titles */
+  font-size: 1.8em;
+  margin-bottom: 10px;
+}
+
+.goal-description {
+  color: #555; /* Neutral gray for descriptions */
+  font-size: 1.1em;
+  margin-bottom: 10px;
+}
+
+
+.goal-card p {
+  font-size: 1.1em;
+  color: #444; /* Slightly lighter text for general information */
+  margin-bottom: 5px;
+}
+
+/* Progress Bar */
+.progress-bar {
+  width: 100%;
+  height: 20px;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  background-color: #e3d6b4; /* Light beige background */
+  appearance: none;
+}
+
+.progress-bar::-webkit-progress-bar {
+  border-radius: 5px;
+  background-color: #e3d6b4;
+}
+
+.progress-bar::-webkit-progress-value {
+  border-radius: 5px;
+  background-color: #9a885e; /* Accent color for progress */
+}
+
+.progress-bar::-moz-progress-bar {
+  border-radius: 5px;
+  background-color: #b99a45;
+}
+
+/* Input to update progress */
+.input-update-progress {
+  width: 40%;
+  padding: 12px;
+  margin-top: 10px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  font-size: 1.1rem;
+  background-color: #e8d9b6;
+}
+
+/* Buttons Styling */
+button {
+  font-size: 1.1rem;
+  padding: 10px 15px;
+  background-color: #5c4e2e;
+  color: white;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+button:hover {
+  background-color: #7e6e39;
+  transform: scale(1.05);
+}
+
+button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .goal-form input,
+  .goal-form textarea,
+  .goal-form button {
+    font-size: 1rem;
+    padding: 10px;
+  }
+
+  .goal-card {
+    padding: 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  .goal-container {
+    padding: 10px;
+  }
+
+  .goal-form input,
+  .goal-form textarea,
+  .goal-form button {
+    font-size: 14px;
+    padding: 8px;
+  }
+
+  .goal-card h4 {
+    font-size: 1.6em;
+  }
+
+  .goal-card p {
+    font-size: 1rem;
+  }
+
+  .input-update-progress {
+    font-size: 14px;
+  }
+}

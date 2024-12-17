@@ -1,0 +1,229 @@
+/* Global Styles */
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #e3d6b4; /* Updated background color */
+  color: #1a1a1a; /* Updated text color */
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #f3ebd9;
+}
+
+h2 {
+  font-size: 2.5rem;
+  color: #cbb780; /* Updated header color */
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+button {
+  background-color: #3498db;
+  color: white;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+button:hover {
+  background-color: #2980b9;
+}
+
+/* Report Section */
+.report-section {
+  margin-top: 30px;
+}
+
+.report-section h3 {
+  color: #cbb780; /* Updated section header color */
+  font-size: 1.8rem;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+/* Tables */
+.report-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+  background-color: #fff;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  overflow: hidden;
+
+}
+
+.report-table th,
+.report-table td {
+  padding: 15px;
+  text-align: left;
+  border-bottom: 1px solid #e1e1e1;
+
+}
+
+.report-table th {
+  background-color: #c3ae7d; /* Updated table header color */
+  font-weight: bold;
+  color: #fff;
+  
+}
+
+.report-table tr:hover {
+  background-color: #ecf0f1;
+}
+
+.report-table td {
+  color: #34495e;
+}
+.metrics {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Dynamic columns */
+  gap: 20px ;
+  margin-top: 40px ;
+  justify-content: center ; /* Center cards horizontally */
+  padding: 0 20px ;
+}
+
+/* Metrics Section */
+
+
+/* For smaller screens, adjust the layout to show 2 cards per row */
+@media (max-width: 768px) {
+  .metrics {
+    grid-template-columns: repeat(2, 1fr); /* 2 cards in a row */
+    justify-items: center; /* Ensures 2 cards per row are centered */
+  }
+}
+
+.metrics p {
+  background-color: #fff;
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  font-size: 1.2rem;
+ 
+}
+
+.metrics span {
+  font-weight: bold;
+  color: #b99a45; /* Updated color */
+}
+
+.comparison-table, .report-table {
+  width: 70%;
+  border-collapse: collapse;
+  margin: 20px 140px ;
+  justify-content: center;
+  
+}
+
+.comparison-table th, .comparison-table td{
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
+  color: #fff;
+  background-color: #fff;
+}
+.comparison h3 {
+  text-align: center;
+  color: #cbb780;
+}
+.report-table th, .report-table td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  color: #fff;
+  text-align: center;
+}
+.report-table td {
+  color: #000;
+  text-align: center;
+}
+
+.comparison-table th
+{
+  color: #fff;
+  text-align: center;
+}
+.comparison-table td{
+  color: #000; 
+   text-align: center;
+  
+}
+
+.comparison-table th {
+  background-color: #c3ae7d;
+  font-weight: bold;
+  text-align: center;
+}
+
+.metrics p {
+  margin: 10px 0;
+}
+
+.positive {
+  color: green;
+}
+
+.negative {
+  color: red;
+}
+.metrics_1 {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Dynamic, centered cards */
+  justify-items: center; /* Center each card in its cell */
+  align-items: center; /* Center items vertically if needed */
+  gap: 20px; /* Space between cards */
+  margin-top: 40px;
+  justify-content: center; /* Align grid as a whole to the center */
+  padding: 0 20px;
+  width: 100%; /* This ensures the grid itself doesn’t stretch unnecessarily */
+}
+
+.metrics_1 p {
+  background-color: #fff;
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  justify-content: center;
+  justify-self: center;
+  justify-items: center;
+  font-size: 1.2rem;
+  width: 100%; /* Make sure cards don’t shrink unexpectedly */
+  max-width: 300px; /* Limit the card width for better alignment */
+  color: #86795d;
+}
+
+.metrics_2 {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Responsive cards */
+  justify-items: center; /* Center items within their grid cell */
+  gap: 20px; /* Spacing between cards */
+  margin-top: 40px;
+  padding: 0 20px;
+  margin-left: 400px;
+  justify-content: center;
+  width: 100%; /* Full grid width */
+}
+
+.metrics_2 .p { /* Target specific 'p' elements inside .metrics_2 */
+  background-color: #fff;
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for cards */
+  text-align: center; /* Center text horizontally */
+  font-size: 1.2rem;
+  width: 100%; /* Card takes full width of container */
+  max-width: 300px; /* Limit card width */
+  color: #86795d; /* Text color */
+  
+}
+

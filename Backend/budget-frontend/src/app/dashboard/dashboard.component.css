@@ -1,0 +1,177 @@
+/* Global Body Styling */
+body {
+  background-color: #f4f4f4; /* Light beige background for the whole page */
+  margin: 0;
+  font-family: Arial, sans-serif;
+  color: #1a1a1a; /* Dark text for readability */
+}
+
+/* Dashboard Container */
+.dashboard-container {
+  padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+  background-color: #f3ebd9; /* Light background for the container */
+  color: #1a1a1a; /* Dark text for readability */
+}
+
+/* Financial Overview */
+.financial-overview {
+  margin-bottom: 40px;
+  color: #cbb780;
+}
+
+/* Overview Cards */
+.overview-cards {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px; /* Adjust gap between cards */
+}
+
+.card {
+  background-color: #efe2be; /* Light beige background for cards */
+  padding: 20px;
+  border-radius: 8px;
+  width: 30%;
+  text-align: center;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.card h3 {
+  color: #000000; /* Black for headings */
+}
+
+.card p {
+  font-size: 1.1rem;
+  color: #333; /* Dark gray text for card description */
+}
+
+/* Charts */
+.charts {
+  display: flex;
+  flex-wrap: wrap; /* Wrap charts on smaller screens */
+  justify-content: space-between;
+  gap: 20px; /* Add gap between chart containers */
+  margin-bottom: 40px;
+
+}
+
+.chart-container {
+  width: 48%; /* Adjust to fit two charts in a row */
+  margin-bottom: 20px; /* Ensure space between charts */
+}
+
+.chart {
+  width: 100%;
+  height: 300px;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  background-color: #f4f4f4; /* Light background for the chart */
+}
+
+/* Financial Goals Section */
+.financial-goals {
+  margin-top: 40px;
+}
+
+.goals-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.goal {
+  background-color: #fafafa; /* Light background for goal items */
+  padding: 15px;
+  margin-bottom: 10px;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+.goal h4 {
+  color: #333; /* Dark text for goal headings */
+  color:#d5c28f;
+}
+
+.goal p {
+  font-size: 1.1rem;
+  color: #555; /* Dark gray text for goal descriptions */
+  color: #86795d;
+
+}
+
+/* Headings */
+h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  color: #cbb780; /* Black text for major headings */
+}
+
+h3 {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+  color: #cbb780; /* Darker gold for subheadings */
+}
+
+h4 {
+  font-size: 1.2rem;
+  margin-bottom: 5px;
+  color: #d5c28f; /* Lighter gold for smaller headings */
+}
+
+/* Paragraphs */
+p {
+  margin: 5px 0;
+  font-size: 1rem;
+  color: #333; /* Dark text for body paragraphs */
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 768px) {
+  .overview-cards {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .card {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+
+  .charts {
+    flex-direction: column;
+  }
+
+  .chart-container {
+    width: 100%;
+  }
+}
+
+/* Additional Styling for Expense by Date Chart */
+#expenseByDateChartContainer {
+  display: flex;
+  flex-direction: column;  /* Align items vertically */
+  justify-content: center;
+  align-items: center;
+  width: 50%;
+  margin-left: 300px;
+}
+
+/* Adjust the heading above the chart */
+.chart-heading {
+  text-align: center;   /* Center the heading */
+  margin-bottom: 15px;   /* Space between the heading and the chart */
+  font-size: 1.5rem;     /* Font size for the heading */
+  color: #cbb780;        /* Color of the heading */
+}
+
+/* Recurring vs Non-Recurring Expenses Chart */
+#expenseByDateChart {
+  width: 90%;              /* Adjust the width for proper scaling */
+  height: 350px;           /* Adjust height if necessary */
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  background-color: #f4f4f4; /* Light background for the chart */
+  display: block;          /* Make sure it behaves like a block element */
+  margin-left: auto;       /* Center horizontally */
+  margin-right: auto;      /* Center horizontally */
+}

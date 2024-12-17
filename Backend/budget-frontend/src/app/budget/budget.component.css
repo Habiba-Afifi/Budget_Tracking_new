@@ -1,0 +1,344 @@
+/* General Styling */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+  margin: 0;
+  padding: 0;
+}
+
+/* Budget Tracker Container */
+.budget-form {
+  max-width: 100%;
+  margin: 20px auto;
+  background-color: #f3ebd9;
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+  font-family: 'Arial', sans-serif;
+  color: #1a1a1a;
+}
+
+h2 {
+  text-align: center;
+  color: #1a1a1a;
+  font-size: 2.5em;
+  margin-bottom: 20px;
+}
+
+/* Budget Form Layout */
+.budget-form .form-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: space-between;
+}
+
+.budget-form .form-group {
+  flex: 1 1 48%; /* Flex-grow and flex-basis for equal distribution */
+  margin-bottom: 20px;
+}
+
+.budget-form label {
+  font-size: 1.1em;
+  font-weight: bold;
+  margin-bottom: 10px;
+  display: block;
+  width: 100%;
+  text-align: left;
+}
+
+.budget-form input {
+  width: 100%; /* Make inputs stretch fully within their container */
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  font-size: 1.1rem;
+  background-color: #fff;
+  color: #333;
+  transition: all 0.3s ease;
+  box-sizing: border-box; /* Ensure padding is included in width calculations */
+}
+
+.budget-form input:focus {
+  border-color: #b99a45;
+  outline: none;
+}
+
+.budget-form button {
+  flex: 1 1 50%; /* Adjust button size */
+  padding: 10px 20px;
+  font-size: 1.1rem;
+  background-color: #c3ae7d;
+  color: white;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  margin: 20px auto;
+  width: fit-content;
+}
+
+.budget-form button:hover {
+  background-color: #837b5f;
+  transform: scale(1.05);
+}
+
+.budget-form button i {
+  font-size: 1.5rem;
+}
+
+/* Add Category Button */
+.add-category-btn {
+  background-color: #b99a45;
+  color: white;
+  border: none;
+  margin-top: 20px;
+  display: block;
+  width: 70%;  /* Adjust width for "Add Category" button */
+  padding: 12px;
+  border-radius: 50px;
+  cursor: pointer;
+  font-size: 1.1rem;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  margin: 20px auto;
+}
+
+.add-category-btn:hover {
+  background-color: #7e6e39;
+  transform: scale(1.05);
+}
+
+.add-category-btn i {
+  font-size: 1.5rem;
+}
+
+/* Submit Button */
+.submit-btn {
+  background-color: #28a745;
+  color: white;
+  border: none;
+  width: 100%;
+  margin-top: 20px;
+  padding: 12px;
+  border-radius: 50px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.submit-btn:hover {
+  background-color: #218838;
+  transform: scale(1.05);
+}
+
+/* View Buttons (Incomes/Expenses) */
+.button-group {
+  display: flex;
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.view-btn {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 50px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  width: 48%;
+}
+
+.view-btn:hover {
+  background-color: #0056b3;
+  transform: scale(1.05);
+}
+
+/* Error Styling */
+.error {
+  color: #b33d3d;
+  font-size: 1rem;
+  text-align: center;
+  margin-top: 10px;
+}
+/* Budget Summary Section */
+.budget-summary {
+  margin: 20px 0;
+  padding: 20px;
+  background-color: #f3ebd9; /* Light background color */
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Soft shadow */
+  text-align: center; /* Center the content */
+}
+
+.budget-summary h4 {
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+  color: #1a1a1a; /* Dark text color */
+  text-align: center;
+}
+
+/* Summary Container for Budget */
+.budget-summary-container {
+  display: flex;
+  justify-content: center; /* Center the summary items */
+  gap: 20px;
+  margin-top: 20px;
+}
+
+/* Individual Budget Summary Item */
+.budget-summary-item {
+  background-color: #ffffff; /* White background */
+  border-radius: 10px;
+  padding: 20px;
+  width: 150px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Soft shadow */
+  text-align: center;
+}
+
+.budget-summary-item p {
+  font-size: 1rem;
+  color: #1a1a1a;
+  text-align: center;
+  margin: 0;
+}
+
+.budget-summary-item h3 {
+  font-size: 1.5rem;
+  margin: 10px 0 0;
+  color: #b99a45; /* Golden yellow for totals */
+}
+
+.budget-summary-item p strong {
+  font-weight: bold;
+}
+
+/* Specific styles for the first and last budget summary items */
+.budget-summary-container .budget-summary-item:first-child {
+  background-color: #f9f9f9; /* Light golden background for the first item */
+}
+
+.budget-summary-container .budget-summary-item:last-child {
+  background-color: #f9f9f9; /* Light beige for the last item */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .budget-form .form-row {
+    flex-direction: column; /* Stack fields vertically on medium screens */
+  }
+
+  .budget-form .form-group {
+    flex: 1 1 100%; /* Stack form fields vertically */
+  }
+
+  .add-category-btn,
+  .submit-btn,
+  .view-btn {
+    width: 100%;
+  }
+
+  .button-group {
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 480px) {
+  .budget-form {
+    padding: 15px;
+  }
+
+  h2 {
+    font-size: 2rem;
+  }
+}
+/* Wrapper for input and icon */
+.input-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.input-wrapper i {
+  color: #b99a45; /* Gold color for icons */
+  font-size: 1.2rem;
+}
+
+/* Error icons */
+.error i {
+  color: #e74c3c; /* Red for error icons */
+  margin-right: 8px;
+}
+
+/* Adjust icon size for buttons */
+button i {
+  margin-right: 8px;
+}
+/* Styling for Select Inputs (Month and Category) */
+.budget-form select {
+  width: 100%; /* Full-width dropdown */
+  padding: 12px; /* Same padding as inputs for consistency */
+  border: 1px solid #ddd; /* Subtle border */
+  border-radius: 50px; /* Rounded edges to match other inputs */
+  font-size: 1.1rem; /* Font size consistency */
+  background-color: #fff; /* White background */
+  color: #333; /* Text color */
+  transition: all 0.3s ease; /* Smooth transitions */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+  -webkit-appearance: none; /* Removes default dropdown styling in WebKit browsers (like Chrome) */
+  -moz-appearance: none; /* Removes default dropdown styling in Firefox */
+  appearance: none; /* General appearance reset */
+}
+
+.budget-form select:focus {
+  border-color: #c0b493; /* Highlight color on focus */
+  outline: none; /* Removes default focus outline */
+  background-color: #fff; /* Maintain the background on focus */
+}
+
+/* Customize the dropdown arrow for all browsers */
+.budget-form select::-ms-expand {
+  display: none; /* Removes default dropdown arrow in IE */
+}
+
+.budget-form select option {
+  font-size: 1rem; /* Slightly smaller text inside options */
+  color: #333; /* Consistent text color */
+}
+
+/* Wrapper for the dropdown icon */
+.budget-form .dropdown-wrapper {
+  position: relative; /* Enables positioning for the dropdown icon */
+}
+
+.budget-form .dropdown-wrapper::after {
+  content: '▼'; /* Dropdown arrow */
+  position: absolute;
+  top: 50%;
+  right: 16px;
+  transform: translateY(-50%);
+  pointer-events: none; /* Prevent the arrow from blocking clicks on the select */
+  color: #b99a45; /* Gold color to match theme */
+  font-size: 1.2rem;
+}
+
+/* Align with input-wrapper class for consistent layout */
+.input-wrapper select {
+  width: calc(100% - 20px); /* Match other input widths with padding adjustments */
+}
+.error {
+  color: #333;
+  font-size: 1.1em;
+  margin-top: 5px;
+}
+
+.error i {
+  margin-right: 5px;
+  color: #333;  /* Change the icon color to #333 */
+}
+

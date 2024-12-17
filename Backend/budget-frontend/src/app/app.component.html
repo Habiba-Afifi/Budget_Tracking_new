@@ -1,0 +1,44 @@
+<div class="app-container" [ngClass]="hideNavbarClass">
+  <nav class="navbar" *ngIf="showNavbar">
+    <ul>
+      <li>
+        <a href="/budget" routerLinkActive="active">
+          <i class="fas fa-wallet"></i> Budget Creation
+        </a>
+      </li>
+      <li>
+        <a href="/income" routerLinkActive="active">
+          <i class="fas fa-money-bill-wave"></i> Income Tracker
+        </a>
+      </li>
+      <li>
+        <a href="/expense" routerLinkActive="active">
+          <i class="fas fa-chart-line"></i> Expense Tracker
+        </a>
+      </li>
+      <li>
+        <a href="/goals" routerLinkActive="active">
+          <i class="fas fa-bullseye"></i> Goals
+        </a>
+      </li>
+      <li>
+        <a href="/dashboard" routerLinkActive="active">
+          <i class="fas fa-file-alt"></i> Dashboard
+        </a>
+      </li>
+      <li>
+        <a href="/report" routerLinkActive="active">
+          <i class="fas fa-home"></i> Report
+        </a>
+      </li>
+      <li>
+        <a href="/login" routerLinkActive="active">
+          <i class="fas fa-sign-out-alt"></i> Logout
+        </a>
+      </li>
+    </ul>
+  </nav>
+  <div class="content">
+    <router-outlet></router-outlet>
+  </div>
+</div>

@@ -1,0 +1,162 @@
+/* Navbar Styling */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: -250px; /* Initially hide the navbar off-screen */
+  width: 250px;
+  height: 100%;
+  background-color: #f3ebd9; /* Dark background for the navbar */
+  color: #f3ebd9; /* Light text color */
+  transition: left 0.3s ease; /* Smooth transition for navbar */
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2);
+}
+
+
+/* Hide navbar for login and register pages */
+.hide-navbar .navbar {
+  display: none !important; /* Hide the navbar completely */
+}
+
+/* Prevent hover effects and disable interactions on navbar for login and register pages */
+.hide-navbar .navbar li a {
+  pointer-events: none !important; /* Disable interactions with links */
+  background-color: transparent !important; /* Remove any hover background */
+  color: inherit !important; /* Keep the default color */
+  cursor: default !important; /* Disable hover cursor */
+}
+
+/* Ensure no hover effects for .app-container when navbar is hidden */
+.hide-navbar .app-container:hover .navbar {
+  left: -250px !important; /* Prevent navbar from appearing on hover */
+}
+
+/* Make sure that the content adjusts properly */
+.hide-navbar .content {
+  margin-left: 0 !important; /* Keep content aligned without shifting */
+}
+
+.navbar ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.navbar li {
+  padding: 20px;
+  border-bottom: 1px solid #b99a45; /* Light gold border */
+}
+
+.navbar li a {
+  color: #e3d6b4; /* Light beige color for links */
+  text-decoration: none;
+  display: block;
+  font-size: 1.2rem;
+  transition: color 0.3s ease;
+}
+
+/* Hover Effect on Links */
+.navbar li a:hover {
+  background-color: #e8d6ab; /* Soft gold background on hover */
+  color: #000000; /* Black text on hover */
+}
+
+/* Active Link Styling */
+.navbar li a.active {
+  font-weight: bold;
+  color: #d5c28f; /* Gold color for active links */
+}
+
+/* Hover Effect to Show Navbar */
+
+.app-container:hover .navbar {
+  left: 0; /* Move navbar into view on hover */
+}
+/* Main Content Styling */
+.app-container {
+  display: flex;
+  transition: margin-left 0.3s ease; /* Smooth transition for content */
+  background-color: white; /* White background for the whole page */
+}
+
+.content {
+  margin-left: 0; /* Default margin when navbar is hidden */
+  padding: 20px;
+  flex-grow: 1;
+  transition: margin-left 0.3s ease;
+  width: 100%; /* Content takes full width by default */
+  background-color: white; /* White background for content */
+  color: #000000; /* Text color for content */
+}
+
+/* Content adjusts when navbar is visible */
+.app-container:hover .content {
+  margin-left: 250px; /* Content shifts right when navbar is visible */
+}
+
+/* Basic Styling for Navigation Links */
+nav ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+nav ul li {
+  margin: 10px 0;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: #5c2f14; /* Default text color for links */
+}
+
+nav ul li a.active {
+  font-weight: bold;
+  color: #C7AE6A; /* Active link color */
+}
+
+/* Button Styling */
+button {
+  background-color: #c7896a; /* Gold button background */
+  color: #1a1a1a; /* Dark text on the button */
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #b99a45; /* Darker gold on hover */
+  color: #d3cbb7; /* Light text on hover */
+}
+
+/* Footer Styling */
+footer {
+  background-color: #1a1a1a; /* Dark footer background */
+  color: #e3d6b4; /* Light text for footer */
+  padding: 15px;
+  text-align: center;
+}
+
+/* Links in Footer */
+footer a {
+  color: #e3d6b4;
+  text-decoration: none;
+}
+
+footer a:hover {
+  color: #C7AE6A; /* Highlight footer links on hover */
+}
+
+/* Adjustments for Responsiveness */
+@media (max-width: 768px) {
+  .navbar {
+    left: 0; /* Always show navbar on small screens */
+    width: 200px;
+  }
+
+  .content {
+    margin-left: 200px; /* Adjust content on small screens */
+  }
+}

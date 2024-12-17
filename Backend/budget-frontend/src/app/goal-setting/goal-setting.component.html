@@ -1,0 +1,66 @@
+<div class="goal-container">
+  <h2 class="title"><i class="fas fa-piggy-bank"></i> Financial Goals</h2>
+
+  <!-- Goal Creation Form -->
+  <div class="goal-form card">
+    <form [formGroup]="goalForm" (ngSubmit)="createGoal()">
+      
+      <label for="savedAmount"><i class="fas fa-wallet"></i> Saved Amount</label>
+      <input
+        type="number"
+        id="savedAmount"
+        formControlName="savedAmount"
+        readonly
+      />
+      
+      <label for="title"><i class="fas fa-tag"></i> Goal Title</label>
+      <input
+        type="text"
+        id="title"
+        formControlName="title"
+        required
+      />
+
+      <label for="description"><i class="fas fa-align-left"></i> Description</label>
+      <textarea id="description" formControlName="description"></textarea>
+
+      <label for="targetAmount"><i class="fas fa-dollar-sign"></i> Target Amount</label>
+      <input
+        type="number"
+        id="targetAmount"
+        formControlName="targetAmount"
+        required
+      />
+
+      <label for="deadline"><i class="fas fa-calendar-alt"></i> Deadline</label>
+      <input
+        type="date"
+        id="deadline"
+        formControlName="deadline"
+        required
+      />
+
+      <button type="submit" class="btn-submit">
+        <i class="fas fa-check-circle"></i> Create Goal
+      </button>
+    </form>
+  </div>
+
+  <div class="error-message" *ngIf="errorMessage">
+    <i class="fas fa-exclamation-circle"></i> {{ errorMessage }}
+  </div>
+
+  <!-- Goal List -->
+  <div class="goal-list">
+    <h3><i class="fas fa-bullseye"></i> Goals Tracking</h3>
+    <div *ngFor="let goal of goals" class="goal-card card">
+      <h4>{{ goal.title }}</h4>
+      <p class="goal-description">{{ goal.description }}</p>
+      <p>
+        <strong><i class="fas fa-balance-scale"></i> Target Amount </strong>${{ goal.targetAmount }}
+      </p>
+      <p>Progress {{ goal.progress | number: '1.0-0' }}%</p> 
+      <progress value="{{ goal.progress }}" max="100" class="progress-bar"></progress>
+    </div>
+  </div>
+</div>
