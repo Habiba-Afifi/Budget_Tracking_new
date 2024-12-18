@@ -7,12 +7,12 @@ import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 
 @Component({
-  selector: 'app-report',
-  templateUrl: './report.component.html',
-  styleUrls: ['./report.component.css'],
+  selector: 'app-reporting',
+  templateUrl: './reporting.component.html',
+  styleUrls: ['./reporting.component.css'],
   imports: [FormsModule, CommonModule],
 })
-export class ReportComponent implements OnInit {
+export class ReportingComponent implements OnInit {
   totalIncome: number = 0;
   totalExpenses: number = 0;
   budgetVarianceIncome: number = 0;  // Budget variance for income
@@ -84,11 +84,9 @@ export class ReportComponent implements OnInit {
     this.goalService.getGoalsByUser(this.userId).subscribe(
       (data) => {
         this.goals = data;
-        this.loadSavingsProgressFromStorage(); // Load savings progress from local storage
+        this.calculateGoalProgress();
       },
-      (error) => {
-        console.error('Error fetching goal data:', error);
-      }
+      (error) => console.error('Error fetching goal data:', error)
     );
   }
 
@@ -128,16 +126,10 @@ export class ReportComponent implements OnInit {
     this.budgetVarianceExpense = this.totalExpenses - expenseBudget; // Actual expenses - Budgeted expenses
   }
 
-  // Load Savings Progress from Local Storage
-  loadSavingsProgressFromStorage(): void {
-    const progressData = localStorage.getItem(`goalProgress_${this.userId}`);
-    if (progressData) {
-      const progressObject = JSON.parse(progressData) as Record<string, number>;
-      const totalProgress = Object.values(progressObject).reduce((sum, progress) => sum + progress, 0);
-      this.savingsProgress = totalProgress / Object.keys(progressObject).length;
-    } else {
-      this.savingsProgress = 0; // Default to 0 if no progress data is available
-    }
+  calculateGoalProgress(): void {
+    const totalProgress = this.goals.reduce((sum, goal) => sum + (goal.progress || 0), 0);
+    const goalCount = this.goals.length || 1; // Avoid division by zero
+    this.savingsProgress = totalProgress / goalCount; // Average progress
   }
 
   // Find the income source with the largest amount
