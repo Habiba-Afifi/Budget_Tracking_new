@@ -7,7 +7,7 @@ const goalSchema = new mongoose.Schema({
   targetAmount: { type: Number, required: true },
   savedAmount: { type: Number, default: 0 },
   deadline: { type: Date },
-  progress: { type: Number, default: 0 } 
+  progress: { type: Number, default: 0 }
 });
 
 const Goal = mongoose.model('Goal', goalSchema);
