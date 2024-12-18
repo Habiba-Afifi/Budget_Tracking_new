@@ -3,7 +3,7 @@ import { GoalService } from '../goal.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { FormsModule } from '@angular/forms';
-import { ReactiveFormsModule } from '@angular/forms';  // Make sure this is imported
+import { ReactiveFormsModule } from '@angular/forms';  
 import { CommonModule } from '@angular/common';
 @Component({
   selector: 'app-goal-setting',
@@ -34,7 +34,7 @@ export class GoalSettingComponent implements OnInit {
     if (storedUserId) {
       this.userId = storedUserId;
       this.loadGoals();
-      this.loadSavedAmount(); // Load the saved amount from local storage (updated)
+      this.loadSavedAmount(); 
     } else {
       console.error('User ID not found in local storage.');
     }
@@ -127,14 +127,28 @@ export class GoalSettingComponent implements OnInit {
   
 
   calculateAndStoreProgress(): void {
-    if (this.userId) {
-      const progressData: { [key: string]: number } = {};
-      this.goals.forEach((goal) => {
-        goal.progress = Math.min((goal.savedAmount / goal.targetAmount) * 100, 100) || 0;
-        progressData[goal._id] = goal.progress;
-      });
-      localStorage.setItem(`goalProgress_${this.userId}`, JSON.stringify(progressData));
+    if (!this.userId) {
+      console.error('User ID is missing. Cannot store progress data.');
+      return;
     }
+  
+    this.goals.forEach((goal) => {
+      // Calculate progress for the current goal
+      const calculatedProgress = Math.min((goal.savedAmount / goal.targetAmount) * 100, 100) || 0;
+  
+      // Update goal object
+      goal.progress = calculatedProgress;
+  
+      // Call the service to update progress in the database
+      this.goalService.updateGoalProgress(goal._id, calculatedProgress).subscribe(
+        (response) => {
+          console.log(`Progress updated for goal: ${goal._id}`, response);
+        },
+        (error) => {
+          console.error(`Failed to update progress for goal: ${goal._id}`, error);
+        }
+      );
+    });
   }
 
   resetGoalForm(): void {
