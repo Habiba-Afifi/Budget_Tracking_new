@@ -33,3 +33,24 @@ exports.getGoalsByUser = async (req, res) => {
     res.status(500).json({ message: 'Error fetching goals', error });
   }
 };
+exports.updateGoalProgress = async (req, res) => {
+  try {
+    const { progress } = req.body; // Progress value from the request
+    const { goalId } = req.params; // Goal ID from route parameters
+
+    // Update the progress field
+    const updatedGoal = await Goal.findByIdAndUpdate(
+      goalId,
+      { progress },
+      { new: true } // Return the updated document
+    );
+
+    if (!updatedGoal) {
+      return res.status(404).json({ message: 'Goal not found' });
+    }
+
+    res.status(200).json({ message: 'Progress updated successfully', updatedGoal });
+  } catch (error) {
+    res.status(500).json({ message: 'Error updating progress', error });
+  }
+};
