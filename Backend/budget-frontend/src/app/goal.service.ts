@@ -20,4 +20,7 @@ export class GoalService {
   getGoalsByUser(userId: string): Observable<any[]> {
     return this.http.get<any[]>(`${this.baseUrl}/${userId}`);
   }
+  updateGoalProgress(goalId: string, progress: number): Observable<any> {
+    return this.http.put(`${this.baseUrl}/${goalId}/progress`, { progress });
+  }
 }
