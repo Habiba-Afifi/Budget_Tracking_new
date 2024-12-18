@@ -44,9 +44,9 @@ export class DashboardComponent implements OnInit, AfterViewInit, AfterViewCheck
       console.error('User ID is not available in localStorage');
     }
 
-    this.totalIncome = parseFloat(localStorage.getItem(`totalIncome_${this.userId}`) || '0');
-    this.totalExpenses = parseFloat(localStorage.getItem(`totalExpenses_${this.userId}`) || '0');
-    const savedAmount = parseFloat(localStorage.getItem(`savedAmount_${this.userId}`) || '0');
+    this.totalIncome = parseFloat(localStorage.getItem(totalIncome_${this.userId}) || '0');
+    this.totalExpenses = parseFloat(localStorage.getItem(totalExpenses_${this.userId}) || '0');
+    const savedAmount = parseFloat(localStorage.getItem(savedAmount_${this.userId}) || '0');
 
     // Calculate savings
     this.savings = savedAmount;
@@ -117,20 +117,14 @@ export class DashboardComponent implements OnInit, AfterViewInit, AfterViewCheck
       this.financialDataService.getGoals(this.userId).subscribe(
         (data) => {
           this.goals = data;
-          const storedProgress = localStorage.getItem(`goalProgress_${this.userId}`); 
-          
-          if (storedProgress) {
-            const goalProgress = JSON.parse(storedProgress);
-            
-            this.goals.forEach((goal: any) => {
-              if (goalProgress[goal._id]) {
-                goal.progress = goalProgress[goal._id]; 
-              }
-            });
-          }
+  
+          // Directly use the progress from API response
+          this.goals.forEach((goal: any) => {
+            goal.progress = goal.progress || 0; // Ensure progress exists
+          });
   
           // Generate chart data and render the chart
-          this.generateGoalProgressChart(data); 
+          this.generateGoalProgressChart(this.goals); 
           this.renderGoalProgressChart();
         },
         (error) => {
@@ -142,28 +136,14 @@ export class DashboardComponent implements OnInit, AfterViewInit, AfterViewCheck
     }
   }
   
-  
   generateGoalProgressChart(goals: any[]): void {
-    // Retrieve stored progress from localStorage
-    const storedProgress = localStorage.getItem(`goalProgress_${this.userId}`);
-    
-    let goalProgress: { [key: string]: number };
-    
-    // If stored progress exists, use it
-    if (storedProgress) {
-      goalProgress = JSON.parse(storedProgress);
-    } else {
-      // If no stored progress, just set goalProgress to an empty object
-      goalProgress = {};
-    }
-    
     // Generate chart data for goals
     this.goalProgressChartData = {
       labels: goals.map(goal => goal.title), // Use goal titles as labels
       datasets: [
         {
           label: 'Goal Progress (%)',
-          data: goals.map(goal => goalProgress[goal._id] || 0), // Map progress data to goal IDs
+          data: goals.map(goal => goal.progress), // Use progress from API
           backgroundColor: [
             '#C7AE6A', '#000000', '#d5c28f', '#b99a45',
             '#1a1a1a', '#e3d6b4', '#FF6384', '#36A2EB', // Adjusted color palette
@@ -174,9 +154,6 @@ export class DashboardComponent implements OnInit, AfterViewInit, AfterViewCheck
     };
   }
   
-  
-  
-
   generateIncomeBySourceChart(incomeData: any): void {
     // Group income by source
     const incomeBySource = incomeData.reduce((acc: any, income: any) => {
@@ -289,7 +266,7 @@ export class DashboardComponent implements OnInit, AfterViewInit, AfterViewCheck
             callbacks: {
               label: function (context) {
                 const percentage = context.raw as number;
-                `return ${context.label}: ${percentage.toFixed(2)}%`;
+                return ${context.label}: ${percentage.toFixed(2)}%;
               },
             },
           },
